@@ -65,7 +65,7 @@ This project compares several machine learning models to classify short-term sto
 
 ## Getting started
 1. Clone the repository:
-   - git clone https://github.com/JesusSolisR/DSI_TeamProject.git
+   - git clone https://github.com/JesusSolisR/Stock-Index-ML-Model-Comparison.git
 
 2. Create environment and install dependencies:
    - Python 3.11 recommended.
