@@ -1,0 +1,30 @@
+name: dsi_participant
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  # Core data science
+  - pandas
+  - numpy
+  - scipy
+  - scikit-learn
+  # Visualization
+  - matplotlib
+  - seaborn
+  - plotly
+  # Machine Learning
+  - tensorflow
+  # Jupyter environment
+  - jupyter
+  - ipykernel
+  - ipython
+  # Development & testing
+  - pytest
+  - black
+  - flake8
+  - pip:
+      - pandas-datareader
+      - python-dotenv
+
