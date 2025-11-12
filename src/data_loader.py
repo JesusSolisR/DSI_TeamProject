@@ -93,7 +93,7 @@ def load_raw_data(stock_index=None, start_date=None, end_date=None, file_path='.
 
     # Delegate cleaning to DataCleaner
     cleaner = DataCleaner()
-    df = cleaner.basic_data_preprocessing(df_raw)
+    df = cleaner.basic_data_preprocessing(df_raw, start_date, end_date)
     return df
 
 def load_data(stock_index=None, start_date=None, end_date=None, file_path='../data/indexData.csv'):
@@ -108,12 +108,21 @@ def load_data(stock_index=None, start_date=None, end_date=None, file_path='../da
     # Read file to DataFrame
     df = pd.read_csv(path)
     
+    # Filter for specific stock index if provided
+    if stock_index:
+        df = df[df['Index'] == stock_index]
+    
     # Delegate cleaning to DataCleaner
     cleaner = DataCleaner()
-    df = cleaner.basic_data_preprocessing(df)
+    df = cleaner.basic_data_preprocessing(df, start_date, end_date)
     
     # Sort and set index via DataCleaner
     df = cleaner.set_and_sort(df)
     
     # Drop rows with missing core data via DataCleaner
     df = cleaner.drop_rows_with_missing_data(df)
+    
+    # Drop rows with zero volume
+    df = cleaner.drop_rows_with_zero_volume(df)
+    
+    return df
