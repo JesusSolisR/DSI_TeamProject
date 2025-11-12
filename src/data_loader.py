@@ -1,3 +1,8 @@
+"""
+This module provides functions to load and preprocess stock index data from CSV files.
+It includes a DataCleaner class for modular data cleaning operations.
+"""
+
 from pathlib import Path
 from typing import Optional
 import pandas as pd
