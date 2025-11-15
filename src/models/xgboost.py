@@ -28,6 +28,6 @@ class XGBTrainer(BaseTrainer):
             raise ImportError("xgboost is required to use XGBTrainer. Install with `pip install xgboost`.")
         clf = XGBClassifier(n_estimators=self.n_estimators, max_depth=self.max_depth, learning_rate=self.learning_rate, random_state=self.random_state, eval_metric='logloss')
         return Pipeline([
-            ("scaler", self.preprocessor),
+            ("preprocessor", self.preprocessor),
             ("clf", clf)
         ])

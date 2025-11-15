@@ -34,7 +34,7 @@ class BaseTrainer:
             self.transformers.append(("num", StandardScaler(), self.numeric_features))
         if self.categorical_features:
             self.transformers.append(("cat", OneHotEncoder(drop='first', handle_unknown='ignore', sparse_output=False), self.categorical_features))
-        self.preprocessor = ColumnTransformer(transformers=self.transformers, remainder='passthrough')
+        self.preprocessor = ColumnTransformer(transformers=self.transformers, remainder='drop')
         self.target = target
         self.test_size = test_size
         self.random_state = random_state
