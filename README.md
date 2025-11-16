@@ -88,7 +88,7 @@ This project compares several machine learning models to classify short-term sto
 - GitHub: https://github.com/abeerkhe
 ### Mark Kuriy 
 - GitHub: https://github.com/xqzv
-- Reflection: [Link](https://tinyurl.com/mark-reflection)
+- Reflection: [Link](https://drive.proton.me/urls/ZPMVVZ2WG4#JS2TaoQxzj27)
 ### Mingxia Zeng
 - GitHub: https://github.com/luoyaqifei  
 - Audio Reflection (3 min): [🎧 listen here](https://drive.google.com/file/d/1Ifkt016SNXM0K9X0gkrPASk9essI5Nj8/view?usp=sharing)
