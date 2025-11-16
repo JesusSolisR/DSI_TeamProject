@@ -92,8 +92,22 @@ This project compares several machine learning models to classify short-term sto
 - GitHub: https://github.com/luoyaqifei  
 - Audio Reflection (3 min): [🎧 listen here](https://drive.google.com/file/d/1Ifkt016SNXM0K9X0gkrPASk9essI5Nj8/view?usp=sharing)
 
-## Results & recommendations
-- PLACEHOLDER (TBD): summarize final comparisons here (best model(s), sample metrics, limitations, next steps).
+## Conclusion
+### Results
+**Random Baseline Model**: a random walk approach was correct `52.24%` of the time. The recall of `0.5405` indicates the model correctly classified `54%` of days where index prices rose over time, and a ROC AUC of `0.5202` indicates index prices have a propensity to increase over time and are not truly random. The data is biased towards increasing, `1`, and randomly guessing shows positive performance over time. 
+
+**Logistic Regression**: a linear probabilistic approach was correct `53.68%` of the time. The recall of `0.7452` indicates the model correctly classified over `74%` of days where index prices rose, and a ROC AUC of `0.5226` indicates its ability to discriminate between "Up" and "Down" days was marginally (`+0.24%`) better than the random baseline. This model is strongly biased towards predicting "Up," catching most positive days (high recall) at the cost of being less precise (lower precision) than the random model. Ultimately, the model learned the positive bias of the dataset. 
+
+**KNN**: a pattern-matching approach was correct only `48.16%` of the time. The recall of `0.4786` indicates the model failed to identify over half of the days where index prices rose, and a ROC AUC of `0.4918` indicates its predictions were actively worse than a random guess. This model likely overfit the training data, as its performance on unseen data is less effective than the biased random baseline.
+
+**Decision Tree**: a rule-based flowchart approach was correct only `46.58%` of the time. The recall of `0.4190` indicates the model failed to identify nearly `58%` of the days where index prices rose, and a ROC AUC of `0.4712` indicates it performed significantly worse than a random guess, showing notably (`-4.91%`) worse performance than the random baseline. This model is the worst performer, suggesting an overfit towards of the training data. 
+
+**EXGBoost**: an advanced ensemble approach was correct exactly `50.00%` of the time. The recall of `0.3476` is extremely low, indicating the model correctly identified only `35%` of days where index prices rose; however, it had the highest precision (`0.5794`) and an ROC AUC of `0.5206`, showing a marginal (`+0.03%`) improvement over the random baseline. This model is highly conservative, only predicting "Up" when very confident (high precision), but its cautiousness causes it to miss many increasing, `1` days (low recall).
+
+### Recommendations
+The historical data, variables, and features available do not make for good predictors of future market behaviour. Historical trends are not suggestive of future market behaviour (except for inherent bias in the data) for classification--regardless of theoretical model robustness--with the limited post-hoc data elements available (e.g., *Open* and *Close* prices). The variables available fail to capture critical underlying scenarios which can predict market behaviour, and this behaviour propogates to features engineered from these variables. While helpful for trend analysis, none of the tested models facilitate effectively 'beating the market'. 
+
+The recommendation is for aggressive investors to leverage **Logistic Regression** models, for conservative investors to leverage **XGBoost** models, and for carefree investors to flip a coin. 
 
 ## Contact
 For questions contact the team members listed above.
